@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':rxjava')
+    implementation project(':rxjava2')
+
+    testImplementation rootProject.ext.junit
+    testImplementation rootProject.ext.assertj
+    testImplementation rootProject.ext.robolectric
+    testImplementation rootProject.ext.mockito
+}

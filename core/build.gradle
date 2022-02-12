@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        // The string resources are used by dependant modules
+        disable 'UnusedResources'
+    }
+}
+
+dependencies {
+    api rootProject.ext.appCompat
+}
+
+apply from: rootProject.file('javadoc.gradle')
